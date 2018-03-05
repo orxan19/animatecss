@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AnimateCSS</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+	<style>
+		#section-1{
+			/*animation-delay: 3s;*/
+			/*animation-duration: 5s;
+			animation-iteration-count: 3;*/
+		}
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<header class="animated slideInDown text-center bg-primary text-white p-5">
+			<h1 class="display-4">Animate.css Sandbox</h1>
+		</header>
+		<section id="section-1" class="animated slideInLeft bg-faded p-5 my-3">
+			<h1>Section One</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis quas iusto neque laborum tempore laboriosam fuck you minus animi ad, quia delectus quis porro corrupti modi, culpa eum fugiat nostrum perspiciatis, placeat vitae architecto exercitationem iure quasi. Ipsam, fuga, ipsa. Vero, a?</p>
+		</section>
+
+		<section id="section-2" class="animated slideInRight bg-faded p-5 my-3">
+			<h1 id="anim-head">Section Two</h1>
+			<p id="anim-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis quas iusto neque laborum tempore laboriosam fuck you minus animi ad, quia delectus quis porro corrupti modi, culpa eum fugiat nostrum perspiciatis, placeat vitae architecto exercitationem iure quasi. Ipsam, fuga, ipsa. Vero, a?</p>
+			<button id="animateBtn" class="btn btn primary">Animate</button>
+			<button id="animateBtn2" class="btn btn primary">Animate</button>
+		</section>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.js"></script>
+
+	<script>
+		$(function(){
+
+			$('#animateBtn').click(function(){
+				animate('#anim-head', 'bounce');
+				animate('#anim-body', 'rubberBand');
+				return false;
+			});
+
+				$('#animateBtn2').click(function(){
+				animate('header', 'slideOutUp');
+				setTimeout(function(){
+					$('header').css('visibility', 'hidden');
+				}, 1000);
+				return false;
+			});
+			// Animate
+
+			function animate(element, animation){
+				$(element).addClass('animated ' +animation);
+				var wait = setTimeout(function(){
+					$(element).removeClass('animated '+ animation);
+				}, 1000);	
+			}
+
+		});
+	</script>
+</body>
+</html>
